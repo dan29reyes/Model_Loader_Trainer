@@ -2,6 +2,10 @@ import numpy as np
 import DnnLib
 import matplotlib.pyplot as plt
 import json
+import time
+
+# Calculate the start time
+start = time.time()
 
 model = {}
 data_train = np.load("mnist_train.npz")
@@ -56,8 +60,6 @@ def forward_pass(network, input_data):
         current_output = layer.forward(current_output)
     return current_output
 
-print(len(test_entries))
-print(test_entries)
 
 predictions = forward_pass(layers, test_entries)
 
@@ -76,6 +78,10 @@ predicted_classes = np.argmax(predictions, axis=1)
 true_classes = np.argmax(one_hot_labels_test, axis=1)
 accuracy = np.mean(predicted_classes == true_classes)
 print(f"Accuracy: {accuracy * 100:.2f}%")
+end = time.time()
+length = end - start
+
+print("Tiempo de Ejecución: ", length, " segundos!")
 
 plt.figure(figsize=(10, 10))
 for i in range(16):

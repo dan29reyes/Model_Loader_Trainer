@@ -3,6 +3,9 @@ import DnnLib
 import matplotlib.pyplot as plt
 import json
 import random
+import time
+
+start = time.time()
 
 # Carga y preparación de los datos
 model = {}
@@ -18,6 +21,9 @@ train_images = data_train['images']
 train_labels = data_train['labels']
 test_images = data_test['images']
 test_labels = data_test['labels']
+
+test_loss_arr = []
+accuracy_save = []
 
 entries = np.array([img.flatten() / scale['scale'] for img in train_images])
 test_entries = np.array([img.flatten() / scale['scale'] for img in test_images])
@@ -94,7 +100,7 @@ def backward_pass(network, y_true, y_pred, intermediate_values, learning_rate):
         layer.bias -= learning_rate * grad_bias
         
 # Bucle de entrenamiento
-epochs = 5
+epochs = 20
 learning_rate = 0.01
 batch_size = 64
 total_entries = len(entries)
@@ -123,12 +129,15 @@ for epoch in range(epochs):
     true_classes = np.argmax(one_hot_labels_test, axis=1)
     accuracy = np.mean(predicted_classes == true_classes)
     
+    accuracy_save.append(accuracy * 100)
+    test_loss_arr.append(avg_loss)
+    
     print(f"Epoch {epoch + 1}/{epochs} | Training Loss: {avg_loss:.4f} | Test Loss: {test_loss:.4f} | Accuracy: {accuracy * 100:.2f}%")
 
     # --- Visualización al final de cada época ---
     plt.figure(figsize=(10, 10))
-    for i in range(16):
-        plt.subplot(4, 4, i + 1)
+    for i in range(32):
+        plt.subplot(8, 8, i + 1)
         plt.imshow(test_images[i], cmap="gray")
         true_label = true_classes[i]
         pred_label = predicted_classes[i]
@@ -139,6 +148,20 @@ for epoch in range(epochs):
     plt.suptitle(f"Epoch {epoch + 1} Predictions")
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     plt.show()
+
+end = time.time()
+length = end - start
+print("Tiempo de Ejecución: ", length, " segundos!")
+
+fig, ax = plt.subplots()
+ax.plot(accuracy_save)
+ax.set_xlabel("Iteraciones")
+ax.set_ylabel("Precisión (%)")
+ax.set_title("Rendimiento de Precisión")
+ax.set_ylim(0, 100)
+ax.grid(True)
+plt.show()
+
 
 # --- GUARDAR LOS PESOS Y SESGOS ENTRENADOS ---
 trained_model = {}
