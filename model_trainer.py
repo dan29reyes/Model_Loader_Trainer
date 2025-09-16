@@ -81,7 +81,10 @@ def categorical_cross_entropy(y_true, y_pred):
     loss = -np.sum(y_true * np.log(y_pred)) / y_true.shape[0]
     return loss
 
-def backward_pass(network, y_true, y_pred, intermediate_values, learning_rate):
+
+learning_rate = 0.01
+
+def backward_pass(network, y_true, y_pred, intermediate_values):
     grad = (y_pred - y_true) / y_true.shape[0]
     for i in reversed(range(len(network))):
         layer = network[i]
@@ -93,15 +96,16 @@ def backward_pass(network, y_true, y_pred, intermediate_values, learning_rate):
         
         grad_weights = np.dot(values['input'].T, grad_before_activation)
         grad_bias = np.sum(grad_before_activation, axis=0)
+        grad_learning_rate = learning_rate * np.sum(grad_before_activation, axis=0)
         
         grad = np.dot(grad_before_activation, layer.weights.T)
         
         layer.weights -= learning_rate * grad_weights
         layer.bias -= learning_rate * grad_bias
+        learning_rate -= learning_rate * grad_learning_rate
         
 # Bucle de entrenamiento
 epochs = 20
-learning_rate = 0.01
 batch_size = 64
 total_entries = len(entries)
 
