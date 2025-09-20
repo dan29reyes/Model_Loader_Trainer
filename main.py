@@ -3,8 +3,9 @@ import DnnLib
 import matplotlib.pyplot as plt
 import json
 import time
+from network import fwd_pass
+from utils import one_hot_encode
 
-# Calculate the start time
 start = time.time()
 
 model = {}
@@ -15,7 +16,6 @@ with open("mnist_trained_mlp.json", "r") as f:
     model = json.load(f)
 
 scale = model["preprocess"]
-entries = []
 
 train_images = data_train["images"]
 train_labels = data_train["labels"]
@@ -24,13 +24,6 @@ test_labels = data_test["labels"]
 
 entries = np.array([img.flatten() / scale["scale"] for img in train_images])
 test_entries = np.array([img.flatten() / scale["scale"] for img in test_images])
-
-
-def one_hot_encode(labels, num_classes):
-    one_hot = np.zeros((labels.shape[0], num_classes))
-    one_hot[np.arange(labels.shape[0]), labels] = 1
-    return one_hot
-
 
 num_classes = model["layers"][-1]["units"]
 one_hot_labels_train = one_hot_encode(train_labels, num_classes)
@@ -48,28 +41,17 @@ for item in model["layers"]:
 
     output_size = item["units"]
     layer = DnnLib.DenseLayer(input_size, output_size, activation)
-    layer.weights = np.array(item["W"]).T
+    layer.weights = np.array(item["W"]) 
     layer.bias = np.array(item["b"])
     layers.append(layer)
     input_size = output_size
 
-
-def forward_pass(network, input_data):
-    current_output = input_data
-    for layer in network:
-        current_output = layer.forward(current_output)
-    return current_output
-
-
-predictions = forward_pass(layers, test_entries)
+predictions = fwd_pass(layers, test_entries)
 
 def categorical_cross_entropy(y_true, y_pred):
-    # Clip predictions to avoid log(0)
     y_pred = np.clip(y_pred, 1e-15, 1 - 1e-15)
-    # The loss formula
     loss = -np.sum(y_true * np.log(y_pred)) / len(y_true)
     return loss
-
 
 loss = categorical_cross_entropy(one_hot_labels_test, predictions)
 print(f"Categorical Cross-Entropy Loss: {loss:.4f}")
