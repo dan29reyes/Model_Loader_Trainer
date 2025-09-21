@@ -1,0 +1,5 @@
+# Ignore all files in the output directory
+/mnist_test.npz
+/mnist_train.npz
+/fashion_mnist_train.npz
+/fashion_mnist_test.npz
