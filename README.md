@@ -7,6 +7,36 @@ Se han experimentado diferentes configuraciones de épocas, tamaño de batch y t
 
 ## 📊 Pruebas y Resultados
 
+### 🔹 Numbers MNIST – 10 épocas
+- Épocas: `10`
+- Batch Size: `128`
+- Learning Rate: `0.001`
+
+**Gráfico de Entrenamiento:**
+
+![t-epoch-10-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/test-10-epochs-numbers-mnist.png?raw=true)
+
+**Resultados del Modelo:**
+
+![r-epoch-10-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/results-10-epochs-numbers-mnist.png?raw=true)
+
+---
+
+### 🔹 Numbers MNIST – 5 épocas
+- Épocas: `5`
+- Batch Size: `128`
+- Learning Rate: `0.001`
+
+**Gráfico de Entrenamiento:**
+
+![t-epoch-5-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/test-5-epochs-numbers-mnist.png?raw=true)
+
+**Resultados del Modelo:**
+
+![r-epoch-5-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/results-5-epochs-numbers-mnist.png?raw=true)
+
+---
+
 ### 🔹 Fashion MNIST – 10 épocas
 - Épocas: `10`
 - Batch Size: `128`
@@ -39,4 +69,3 @@ Se han experimentado diferentes configuraciones de épocas, tamaño de batch y t
 
 ## 👨‍💻 Autor
 Programa diseñado por **Kenneth Daniel Reyes**  
-*(incluye función para agregar fecha de commit)*
