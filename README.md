@@ -68,19 +68,7 @@ Se han experimentado diferentes configuraciones de épocas, tamaño de batch y t
 ---
 
 ## ⭐ Pruebas Extra ⭐
-### Pruebas Realizadas para medir la precisión del modelo cuando se utilizan datasets diferentes, se probo entrenar con Fashion MNIST y evaluar con Numbers MNIST y viceversa.
-### 🔹 Numbers MNIST – 10 épocas
-- Épocas: `10`
-- Batch Size: `128`
-- Learning Rate: `0.001`
-- Entrenamiento: `Fashion MNIST`
-- Evaluación: `Numbers MNIST`
-
-**Resultados del Modelo:**
-
-![r-epoch-10-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/train_images/results-10-epochs-mnist.png?raw=true)
-
----
+Pruebas Realizadas para medir la precisión del modelo cuando se utilizan datasets diferentes, se probo entrenar con Fashion MNIST y evaluar con Numbers MNIST y viceversa.
 
 ### 🔹 Numbers MNIST – 10 épocas
 - Épocas: `10`
