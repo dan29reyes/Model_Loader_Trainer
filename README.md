@@ -14,11 +14,11 @@ Se han experimentado diferentes configuraciones de épocas, tamaño de batch y t
 
 **Gráfico de Entrenamiento:**
 
-![t-epoch-10-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/test-10-epochs-numbers-mnist.png?raw=true)
+![t-epoch-10-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/train-10-epochs-mnist.png?raw=true)
 
 **Resultados del Modelo:**
 
-![r-epoch-10-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/results-10-epochs-numbers-mnist.png?raw=true)
+![r-epoch-10-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/results-10-epochs-mnist.png?raw=true)
 
 ---
 
@@ -29,11 +29,11 @@ Se han experimentado diferentes configuraciones de épocas, tamaño de batch y t
 
 **Gráfico de Entrenamiento:**
 
-![t-epoch-5-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/test-5-epochs-numbers-mnist.png?raw=true)
+![t-epoch-5-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/train-5-epochs-mnist.png?raw=true)
 
 **Resultados del Modelo:**
 
-![r-epoch-5-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/results-5-epochs-numbers-mnist.png?raw=true)
+![r-epoch-5-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/results-5-epochs-mnist.png?raw=true)
 
 ---
 
@@ -44,7 +44,7 @@ Se han experimentado diferentes configuraciones de épocas, tamaño de batch y t
 
 **Gráfico de Entrenamiento:**
 
-![t-epoch-10-fm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/test-10-epochs-fashion-mnist.png?raw=true)
+![t-epoch-10-fm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/train-10-epochs-fashion-mnist.png?raw=true)
 
 **Resultados del Modelo:**
 
@@ -59,7 +59,7 @@ Se han experimentado diferentes configuraciones de épocas, tamaño de batch y t
 
 **Gráfico de Entrenamiento:**
 
-![t-epoch-5-fm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/test-5-epochs-fashion-mnist.png?raw=true)
+![t-epoch-5-fm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/train-5-epochs-fashion-mnist.png?raw=true)
 
 **Resultados del Modelo:**
 
