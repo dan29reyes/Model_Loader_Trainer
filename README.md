@@ -33,7 +33,7 @@ Se han experimentado diferentes configuraciones de épocas, tamaño de batch y t
 
 **Resultados del Modelo:**
 
-![r-epoch-5-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/train_images/results-5-epochs-mnist.png?raw=true)
+![r-epoch-5-nm](https://github.com/dan29reyes/Model_Loader_Trainer/blob/main/train_images/resuts-5-epochs-mnist.png?raw=true)
 
 ---
 
